@@ -1,0 +1,366 @@
+html, body {
+	height:100%;
+}
+body {
+	background-color: #ffffff;
+	margin:0;
+	padding:0;
+	font-size:62.5%; 
+	font-family:Arial,Helvetica,sans-serif; 
+	color:#222; 
+	margin:0 auto -80px; 
+	text-align:center;
+}
+
+/*ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	margin-bottom: 20px;
+	clear: both;
+}*/
+
+h1{
+	margin-top: 0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:lighter; 
+	padding-left:16px;
+	width:640px;
+}
+
+h2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:lighter;
+	padding-left:16px;
+	width:640px;
+}
+
+h4{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:180px;
+	font-weight:lighter;
+	padding-left:16px;
+	width:640px;
+}
+
+textStandard{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:lighter;
+}
+
+textStandardHeader{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:lighter;
+}
+
+#pict{
+	border:hidden;
+	margin-left:16px;
+	margin-top:16px;
+}
+
+#sepBlack{
+	width:992px;height:16px;background:#000;
+}
+
+#sepBlackBottom{
+	width:992px;height:16px;background:#000;
+}
+
+#Preview-video{
+	overflow:hidden;
+	/*position:fixed;*/
+}
+
+#interligne{
+	height:8px;
+	margin-bottom:0px;
+	margin-top:0px;
+	padding-bottom:0px;
+	padding-top:0px;
+}
+
+#resetMargin{
+	margin-bottom:0px;
+	margin-top:0px;
+	padding-bottom:0px;
+	padding-top:0px;
+}
+
+#title{
+	font-weight:bold;
+	width:204px;
+}
+
+#titleHome{
+	font-weight:bold;
+	width:960px;
+}
+
+#titleMore{
+	font-weight:bold;
+	position:absolute;
+}
+
+#logOutPict{
+	margin-top:16px;
+	margin-left:16px;
+}
+
+#titleDel{
+	margin-left:16px;
+	font-weight:bold;
+	width:288px;
+}
+
+#addButton a:link{
+	color:#fff;
+	text-decoration:none;
+}
+
+#addButton a:visited{
+	color:#fff;
+	text-decoration:none;
+}
+
+#addButton a:over{
+	color:#006699;
+	text-decoration:none;
+}
+
+#addButton{
+	width:992px;
+	background:#000;
+	height:36px;
+	margin-bottom:16px;
+}
+
+#logOutButton a:link{
+	color:#000;
+	text-decoration:none;
+}
+
+#logOutButton a:visited{
+	color:#000;
+	text-decoration:none;
+}
+
+#logOutButton a:over{
+	color:#000;
+	text-decoration:none;
+}
+
+#logOutButton{
+	float:left;
+	text-align:left;
+	position:absolute;
+}
+
+#logOutButtonHeader a:link{
+	color:#000;
+	text-decoration:none;
+}
+
+#logOutButtonHeader a:visited{
+	color:#000;
+	text-decoration:none;
+}
+
+#logOutButtonHeader a:over{
+	color:#000;
+	text-decoration:none;
+}
+
+#logOutButtonHeader{
+	margin-top:-152px;
+	padding-left:864px;
+	position:absolute;
+	text-align:right;
+}
+
+#ficheContact{
+	padding:0px;
+	margin-right:16px;
+	width:236px;
+	/*width:320px;*/
+	height:464px;
+	background-color:#DBDBDB;
+	border:thin;
+	border-color:#000;
+	float:left;
+	margin-bottom:16px;
+}
+
+#visibleFront{
+	height:40px;
+	margin-left:120px;
+	margin-top:-35px;
+	position:absolute;
+	text-align:left;
+	width:120px;
+}
+
+#supprimerLiens{
+	height:50px;
+	margin-left:100px;
+	margin-top:-32px;
+	position:absolute;
+	text-align:left;
+	width:120px;
+}
+
+#ficheLiens{
+	padding:0px;
+	margin-right:16px;
+	width:236px;
+	/*width:320px;*/
+	height:212	px;
+	background-color:#DBDBDB;
+	border:thin;
+	border-color:#000;
+	float:left;
+	margin-bottom:16px;
+}
+
+#ficheBackdrop{
+	padding:0px;
+	margin-right:16px;
+	width:236px;
+	height:392px;
+	background-color:#DBDBDB;
+	border:thin;
+	border-color:#000;
+	float:left;
+	margin-bottom:16px;
+}
+
+#ficheAbout{
+	padding:0px;
+	margin-right:16px;
+	width:992px;
+	background-color:#DBDBDB;
+	border:thin;
+	border-color:#000;
+	float:left;
+	margin-top:16px;
+	margin-bottom:16px;
+}
+
+#ficheHomePicture{
+	padding:0px;
+	/*margin-right:16px;*/
+	width:992px;
+	/*height:468px;*/
+	background-color:#DBDBDB;
+	border:thin;
+	/*border-color:#000;*/
+	float:left;
+	margin-bottom:16px;
+}
+
+#ficheProjet{
+	padding:0px;
+	margin-right:16px;
+	width:320px;
+	/*height:468px;*/
+	background-color:#DBDBDB;
+	border:thin;
+	border-color:#000;
+	float:left;
+	margin-bottom:16px;
+}
+
+#deleteProjet{
+	background:url("images/delete.png") no-repeat scroll 0 0 transparent;
+	border:none;
+	outline:none;
+	/*float:left;*/
+	height:16px;
+	text-indent:-9999px;
+	width:16px;
+}
+
+#nav{float:right; margin-top:134px}
+
+#navLeft{float:left; margin-top:16px}
+
+#page-wrap{ width:992px; height:auto !important; height:100%; margin:0 auto -80px; padding-left:10px; padding-right:10px; text-align:left}
+
+#footer{ width:992px; margin:0 auto -80px }
+
+#conteneur{
+	/*border:#0F0;
+	border:2px;
+	border:solid;
+	margin-top:16px;*/
+	width:1008px;
+}
+
+#blank16px{
+	height:16px;
+}
+
+#morePict{
+	/*margin-left:16px;
+	margin-top:-33px;*/	
+}
+
+.clear{clear:both}
+
+<!--#header{height:180px; width:992px; margin:0 auto 0; text-align:left; outline:hidden}-->
+#header{width:992px; margin:0 auto 0; text-align:left; outline:hidden}
+
+#nav ul{list-style-type:none; width:100%}
+
+#navLeft ul{
+	list-style-type:none;
+	width:100%
+}
+
+#nav li{display:block; display:inline; outline:hidden}
+
+#nav a:link,
+
+#nav a:visited{padding:5px; display:block; color:#353434; margin-right:10px;  float:left; text-decoration:none; font-size:1.4em; font-weight:bold; text-transform:uppercase; outline:none}
+
+#nav a:hover{color:#fff; background:#000; outline:hidden}
+
+ul#nav li.current_page_item a:link,
+
+ul#nav li.current_page_item a:visited,
+
+ul#nav li.current_page_item a:hover,
+
+ul#nav li.current_page_item a:active{color:#fff; text-decoration:none; background:#000}
+
+
+#selected{
+	color:#fff;
+	text-decoration:none;
+	background:#000
+}
+
+#navLeft li{display:block; display:inline; outline:hidden}
+
+#navLeft a:link,
+
+#navLeft a:visited{padding:5px; display:block; color:#353434; margin-right:10px; float:left; text-decoration:none; font-size:1.4em; font-weight:bold; text-transform:uppercase; outline:none}
+
+#navLeft a:hover{color:#fff; background:#000; outline:hidden}
+
+ul#navLeft li.current_page_item a:link,
+
+ul#navLeft li.current_page_item a:visited,
+
+ul#navLeft li.current_page_item a:hover,
+
+ul#navLeft li.current_page_item a:active{color:#fff; text-decoration:none; background:#000}
+
+

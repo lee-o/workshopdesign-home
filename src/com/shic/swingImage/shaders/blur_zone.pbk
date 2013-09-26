@@ -1,0 +1,248 @@
+//  25 August 2008
+//  Espoo, Finland
+<languageVersion : 1.0;>
+
+#define PI 3.1415926535897932384626433832795
+
+kernel FocusingLinearBlur
+<   namespace : "FocusingLinearBlur";
+    vendor : "Petri Leskinen";
+    version : 1;
+    description : "linear blur by a line equation";
+>
+{
+
+     // center point of the magnification
+    parameter float2 center
+    <
+        minValue: float2(0.0, 0.0);
+        maxValue: float2(2048.0, 2048.0);
+        defaultValue: float2(150.0, 245.0);
+    >;
+    
+    // radius of the outer portion
+    parameter float outerRadius
+    <
+        minValue:0.0;
+        maxValue:500.0;
+        defaultValue:180.0;
+    >;
+    
+    // blur value
+    parameter int blur
+    <
+        minValue:0;
+        maxValue:24;
+        defaultValue:24;
+    >; 
+
+    input image4 src;
+    output pixel4  dst;
+
+    void
+    evaluatePixel()
+    {
+
+        float2 targetPixel;
+        float2 coord = outCoord();
+        float2 centerVector = coord - center;
+        float distance = length(centerVector);  
+        
+        //------
+ 
+ 
+        float blurValue=float(blur);
+ 
+        if( distance < outerRadius && blurValue>0.0)
+        {
+ 
+            
+            // interpolate the magnification amount along a cosine curve between the two radii
+            float ratio = (distance ) / (outerRadius ); // gives a value between 0 and 1
+           // ratio=abs(sin(ratio));
+            float trigRatio = (cos(ratio *  PI) + 1.0) / 2.0;
+
+            blurValue=blurValue;
+            float i;
+            float iterations;
+           // for (i=0.0;i<blurValue;i+=1.0)
+            //{
+                
+                float v=(i*trigRatio);
+                v=blurValue*trigRatio;
+                dst+=
+                
+                sampleNearest(src, outCoord()+float2( -v, -v)) +
+                
+                /*
+                sampleNearest(src, outCoord()+float2( -v, -v)) +
+                sampleNearest(src, outCoord()+float2(0.0, -v)) +
+                sampleNearest(src, outCoord()+float2(  v, -v)) +
+                
+                sampleNearest(src, outCoord()+float2( -v,0.0)) +
+                sampleNearest(src, outCoord()+float2( -v,v)) +
+                sampleNearest(src, outCoord()+float2(  v,0.0)) +
+                
+                sampleNearest(src, outCoord()+float2( -v,  v)) +
+                sampleNearest(src, outCoord()+float2(0.0,  v)) +
+                sampleNearest(src, outCoord()+float2(  v,  v)); 
+                iterations=9.0;
+                */
+                
+                /*
+                sampleNearest(src, outCoord()+float2( -v, -v)) +
+                sampleNearest(src, outCoord()+float2(0.0, -v)) +
+                sampleNearest(src, outCoord()+float2(  v, -v)) +
+                
+                sampleNearest(src, outCoord()+float2( -v,0.0)) +
+                sampleNearest(src, outCoord()+float2( -v,v)) +
+                sampleNearest(src, outCoord()+float2(  v,0.0)) +
+                
+                sampleNearest(src, outCoord()+float2( -v,  v)) +
+                sampleNearest(src, outCoord()+float2(0.0,  v)) +
+                sampleNearest(src, outCoord()+float2(  v,  v)); 
+                iterations=9.0;
+                
+                v=v*0.5;
+                dst+=sampleNearest(src, outCoord()+float2( -v, -v))/2.0 +
+                sampleNearest(src, outCoord()+float2(0.0, -v))/2.0 +
+                sampleNearest(src, outCoord()+float2(  v, -v))/2.0 +
+                
+                sampleNearest(src, outCoord()+float2( -v,0.0))/2.0 +
+                sampleNearest(src, outCoord()+float2( -v,v))/2.0 +
+                sampleNearest(src, outCoord()+float2(  v,0.0))/2.0 +
+                
+                sampleNearest(src, outCoord()+float2( -v,  v))/2.0 +
+                sampleNearest(src, outCoord()+float2(0.0,  v))/2.0 +
+                sampleNearest(src, outCoord()+float2(  v,  v))/2.0; 
+                
+                iterations+=9.0/2.0;
+                
+                
+                v=v*0.5;
+                dst+=sampleNearest(src, outCoord()+float2( -v, -v))/2.0 +
+                sampleNearest(src, outCoord()+float2(0.0, -v))/2.0 +
+                sampleNearest(src, outCoord()+float2(  v, -v))/2.0 +
+                
+                sampleNearest(src, outCoord()+float2( -v,0.0))/2.0 +
+                sampleNearest(src, outCoord()+float2( -v,v))/2.0 +
+                sampleNearest(src, outCoord()+float2(  v,0.0))/2.0 +
+                
+                sampleNearest(src, outCoord()+float2( -v,  v))/2.0 +
+                sampleNearest(src, outCoord()+float2(0.0,  v))/2.0 +
+                sampleNearest(src, outCoord()+float2(  v,  v))/2.0; 
+                
+                iterations+=9.0/2.0;
+                */
+
+                /*
+                /*
+                sampleNearest(src, outCoord()+float2( -v*2.0, -v*1.5)) +
+                sampleNearest(src, outCoord()+float2(0.0, -v)) +
+                sampleNearest(src, outCoord()+float2(  v*1.1, -v)) +
+                
+                sampleNearest(src, outCoord()+float2( -v,0.0)) +
+                sampleNearest(src, outCoord()+float2( -v*0.3,v*1.8)) +
+                sampleNearest(src, outCoord()+float2(  v*0.2,0.0)) +
+                
+                sampleNearest(src, outCoord()+float2( -v*1.5,  v)) +
+                sampleNearest(src, outCoord()+float2(0.0,  v)) +
+                sampleNearest(src, outCoord()+float2(  v,  v)); 
+                iterations=9.0;
+                */
+                /*
+                sampleNearest(src, outCoord()+float2( -v, -v)) +
+                sampleNearest(src, outCoord()+float2(0.0, -v)) +
+                sampleNearest(src, outCoord()+float2(  v, -v)) +
+                
+                sampleNearest(src, outCoord()+float2( -v,  v)) +
+                sampleNearest(src, outCoord()+float2(0.0,  v)) +
+                sampleNearest(src, outCoord()+float2(  v,  v)) + 
+                
+                sampleNearest(src, outCoord()+float2( -v*2.0, -v*2.0)) +
+                sampleNearest(src, outCoord()+float2(0.0*2.0, -v*2.0)) +
+                sampleNearest(src, outCoord()+float2(  v*2.0, -v*2.0)) +
+                
+                sampleNearest(src, outCoord()+float2( -v*2.0,  v*2.0)) +
+                sampleNearest(src, outCoord()+float2(0.0*2.0,  v*2.0)) +
+                sampleNearest(src, outCoord()+float2(  v*2.0,  v*2.0)); 
+                iterations=12.0;
+                */
+                /*
+                sampleNearest(src, outCoord()+float2( -v*0.9, -v*0.9)) +
+                sampleNearest(src, outCoord()+float2(0.0*1.1, -v*1.1)) +
+                sampleNearest(src, outCoord()+float2(  v*0.9, -v*0.9)) +
+                
+                sampleNearest(src, outCoord()+float2( -v*1.1,0.0*0.9)) +
+                sampleNearest(src, outCoord()+float2( -v*0.9,v*1.1)) +
+                sampleNearest(src, outCoord()+float2(  v*1.1,0.0*0.9)) +
+                
+                sampleNearest(src, outCoord()+float2( -v*0.8,  v*1.3)) +
+                sampleNearest(src, outCoord()+float2(0.0*0.9,  v*1.2)) +
+                sampleNearest(src, outCoord()+float2(  v*0.7,  v*1.1)); 
+                iterations=9.0;
+                */
+                /*
+                sampleNearest(src, outCoord()+float2( -v*0.5, -v*0.5)) +
+                sampleNearest(src, outCoord()+float2(0.0*1.0, -v*1.0)) +
+                sampleNearest(src, outCoord()+float2(  v*0.5, -v*0.5)) +
+                
+                sampleNearest(src, outCoord()+float2( -v*1.0, v*0.0*1.0)) +
+                //sampleNearest(src, outCoord()+float2(0.0*1.0,0.0*1.0)) +
+                sampleNearest(src, outCoord()+float2(  v*1.0, v*0.0*1.0)) +
+                
+                sampleNearest(src, outCoord()+float2( -v*0.5,  v*0.5)) +
+                sampleNearest(src, outCoord()+float2(0.0*1.0,  v*1.0)) +
+                sampleNearest(src, outCoord()+float2(  v*0.5,  v*0.5)); 
+                iterations=8.0;
+                */
+                /*
+                sampleLinear(src, outCoord()+float2(0.0, -v*1.5)) +
+                sampleLinear(src, outCoord()+float2(  v*1.5,0.0)) +
+                sampleLinear(src, outCoord()+float2(0.0,  v*1.5)) +
+                sampleLinear(src, outCoord()+float2( -v*1.5,0.0)) +
+                
+                sampleLinear(src, outCoord()+float2(0.0, -v*1.7)) +
+                sampleLinear(src, outCoord()+float2(  v*1.7,0.0)) +
+                sampleLinear(src, outCoord()+float2(0.0,  v*1.7)) +
+                sampleLinear(src, outCoord()+float2( -v*1.7,0.0)) +
+                
+                sampleLinear(src, outCoord()+float2(0.0, -v)) +
+                sampleLinear(src, outCoord()+float2(  v,0.0)) +
+                sampleLinear(src, outCoord()+float2(0.0,  v)) +
+                sampleLinear(src, outCoord()+float2( -v,0.0)) ;
+                iterations=12.0;
+                */
+                
+                
+                
+           // }
+          
+            
+           
+
+            dst=dst/( iterations);
+            
+        
+        }else{
+            // don't change this pixel
+            targetPixel = coord;
+            dst = sampleNearest(src, targetPixel);
+        }
+        
+        /*
+        dst= sampleLinear(src, outCoord()+targetPixel) + 
+                sampleLinear(src, outCoord()+float2(facteur, facteur)) +
+                sampleLinear(src, outCoord()+float2(0.0, facteur)) +
+                sampleLinear(src, outCoord()+float2(-facteur, -0.0)) ;
+           
+
+            dst=dst/float(4.0);
+        
+        */
+        
+        // sample linear will smooth out the magnification quite nicely
+        
+
+    }
+}

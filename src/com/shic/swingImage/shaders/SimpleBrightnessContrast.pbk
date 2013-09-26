@@ -1,0 +1,51 @@
+<languageVersion : 1.0;>
+
+kernel SimpleBrightnessContrast
+<   namespace : "SimpleBrightnessContrast";
+    vendor : "Peter McAtominey";
+    version : 1;
+    description : "A very simple filter to learn some basic PB operations";
+>
+
+{
+    input image4 src;
+    output pixel4 dst;
+    
+    // Set up sliders
+     parameter float contrast
+    <
+        defaultValue :1.0;
+        minValue : 0.0;
+        maxValue : 10.0;
+    >;
+    
+     parameter float brightness
+    <
+        defaultValue :1.0;
+        minValue : 0.0;
+        maxValue : 10.0;
+    >;
+
+    void
+    evaluatePixel()
+    {
+        dst = sampleNearest(src,outCoord());
+        // Contrast Filter. 
+        /*All colour values are between 0.0 and 1.0
+        / By subtracting 0.5 we make 0 the treshold. 
+        / All values under 0 get smaller as contrast increases
+        / and all values over get bigger, i.e. more contrast!
+        */
+        dst.r = ((dst.r - 0.5)*contrast)+ 0.5;
+        dst.g = ((dst.g - 0.5)*contrast)+ 0.5;
+        dst.b = ((dst.b - 0.5)*contrast)+ 0.5;
+        //Brightness Filter
+        /* Simply multiply by a number more then 1 to increase
+        / and a number less than 1 to decrease.
+        */
+        dst.r = dst.r * brightness;
+        dst.g = dst.g * brightness;
+        dst.b = dst.b * brightness;
+        
+    }
+}

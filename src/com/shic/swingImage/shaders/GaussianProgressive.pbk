@@ -1,0 +1,263 @@
+<languageVersion: 1.0;>
+#define PI 3.1415926535897932384626433832795
+kernel HorizontalGaussianBlur
+<   namespace : "com.adobe.example";
+    vendor : "Adobe Systems Inc.";
+    version : 1;
+    description : "The horizontal convolution of a Gaussian blur"; >
+{
+    input image4 src;
+    output float4 result;
+    
+    parameter int strength
+    <
+        minValue : 0;
+        maxValue : 7;
+        defaultValue : 6;
+    >;
+    
+    // center point of the filter
+    parameter float2 center
+    <
+        minValue: float2(0.0, 0.0);
+        maxValue: float2(2048.0, 2048.0);
+        defaultValue: float2(150.0, 150.0);
+    >;
+    
+    // radius of the outer portion
+    parameter float radius
+    <
+        minValue:0.0;
+        maxValue:2048.0;
+        defaultValue:150.0;
+    >;
+    
+    void evaluatePixel()
+    {
+    
+    float2 targetPixel;
+    float2 coord = outCoord();
+    float2 centerVector = coord - center;
+    float distance = length(centerVector);  
+    
+   
+    float multiplicator;
+    pixel4 center, band1,band1y, band2,band2y, band3,band3y, band4,band4y, band5,band5y, band6,band6y,band7,band7y;
+    float2 pos = outCoord();
+    
+        if( distance < radius && strength>0)
+        {
+    
+            float ratio = (distance ) / (radius ); // gives a value between 0 and 1
+            float trigRatio = (cos(ratio *  PI) + 1.0) / 2.0;
+            
+            
+            multiplicator=2.0*trigRatio;
+           //Sample image in bands
+           if( strength > 6 )
+           {
+                band7 = sampleNearest(src, float2(pos.x - 7.0*multiplicator, pos.y)) 
+                      + sampleNearest(src, float2(pos.x + 7.0*multiplicator, pos.y));
+                band7y = sampleNearest(src, float2(pos.x,pos.y - 7.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y - 7.0*multiplicator));
+           } 
+           if( strength > 5 )
+           {
+                band6 = sampleNearest(src, float2(pos.x - 6.0*multiplicator, pos.y)) 
+                      + sampleNearest(src, float2(pos.x + 6.0*multiplicator, pos.y));
+                band6y = sampleNearest(src, float2(pos.x,pos.y - 6.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y + 6.0*multiplicator));
+           } 
+           if( strength > 4 )
+           {
+                band5 = sampleNearest(src, float2(pos.x - 5.0*multiplicator, pos.y)) 
+                      + sampleNearest(src, float2(pos.x + 5.0*multiplicator, pos.y));
+                band5y = sampleNearest(src, float2(pos.x,pos.y - 5.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y + 5.0*multiplicator));
+           }        
+           if( strength > 3 )
+           {
+                band4 = sampleNearest(src, float2(pos.x - 4.0*multiplicator, pos.y)) 
+                      + sampleNearest(src, float2(pos.x + 4.0*multiplicator, pos.y));
+                band4y = sampleNearest(src, float2(pos.x,pos.y - 4.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y + 4.0*multiplicator));
+           }       
+           if( strength > 2 )
+           {
+                band3 = sampleNearest(src, float2(pos.x - 3.0*multiplicator, pos.y)) 
+                      + sampleNearest(src, float2(pos.x + 3.0*multiplicator, pos.y));
+                band3y = sampleNearest(src, float2(pos.x,pos.y - 3.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y + 3.0*multiplicator));
+           }
+           if( strength > 1 )
+           {
+                band2 = sampleNearest(src, float2(pos.x - 2.0*multiplicator, pos.y)) 
+                      + sampleNearest(src, float2(pos.x + 2.0*multiplicator, pos.y));
+                band2y = sampleNearest(src, float2(pos.x,pos.y - 2.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y + 2.0*multiplicator));
+           }
+
+           band1 = sampleNearest(src, float2(pos.x - 1.0*multiplicator, pos.y)) 
+                 + sampleNearest(src, float2(pos.x + 1.0*multiplicator, pos.y));
+            band1y = sampleNearest(src, float2(pos.x,pos.y - 1.0*multiplicator)) 
+                      + sampleNearest(src, float2(pos.x,pos.y + 1.0*multiplicator));
+           
+           center = sampleNearest(src, pos);
+           
+           //Apply weights and compute resulting pixel 
+           if( strength == 7 )
+           {
+                result = 
+                (
+                (band7 + (band6 * 14.0) + (band5 * 91.0) + (band4 * 320.0) + (band3 * 990.0/*uuu*/) + (band2 * 2486.0) + (band1 * 2900.0) + (center * 924.0))/(16384.0)
+                +
+                (band6y + (band6y * 14.0) + (band5y * 91.0) + (band3y * 320.0) + (band2y * 990.0) + (band1y * 792.0) + (center * 924.0))/(4096.0)
+                )/2.0;
+           }
+           if( strength == 6 )
+           {
+                result = 
+                (
+                (band6 + (band5 * 12.0) + (band4 * 66.0) + (band3 * 220.0) + (band2 * 495.0) + (band1 * 792.0) + (center * 924.0))/(4096.0)
+                +
+                (band6y + (band5y * 12.0) + (band4y * 66.0) + (band3y * 220.0) + (band2y * 495.0) + (band1y * 792.0) + (center * 924.0))/(4096.0)
+                )/2.0;
+           }
+           if( strength == 5 )
+           {
+                result = (
+                (band5 + (band4 * 10.0) + (band3 * 45.0) + (band2 * 120.0) + (band1 * 210.0) + (center * 252.0))/1024.0
+                +
+                (band5y + (band4y * 10.0) + (band3y * 45.0) + (band2y * 120.0) + (band1y * 210.0) + (center * 252.0))/1024.0
+                )/2.0;
+           }       
+           if( strength == 4 )
+           {
+                result = (
+                (band4 + (band3 * 8.0) + (band2 * 28.0) + (band1 * 56.0) + (center * 70.0))/256.0
+                +
+                 (band4y + (band3y * 8.0) + (band2y * 28.0) + (band1y * 56.0) + (center * 70.0))/256.0
+                )/2.0;
+           }
+           if( strength == 3 )
+           {
+                result = (
+                (band3 + (band2 * 6.0) + (band1 * 15.0) + (center * 20.0))/64.0
+                +
+                (band3y + (band2y * 6.0) + (band1y * 15.0) + (center * 20.0))/64.0
+                )/2.0;
+           }
+           if( strength == 2 )
+           {
+                result = (
+                (band2 + (band1 * 4.0) + (center * 6.0))/16.0
+                +
+                (band2y + (band1y * 4.0) + (center * 6.0))/16.0
+                )/2.0;
+           }
+           if( strength == 1 )
+           {
+                result = (
+                (band1 + (center * 2.0))/4.0
+                +
+                (band1y + (center * 2.0))/4.0
+                )/2.0;
+           }
+       }else{
+            // pixel identique
+            targetPixel = coord;
+            result = sampleNearest(src, targetPixel);
+       }
+    }
+}
+
+
+/*
+clemos: 15 28 45 66 pourrait continuer avec 89 116 ...
+
+
+david: ha
+comment tu trouves ça? tu regardes des chiffres et des lettrers tous les soirs?
+
+
+clemos: 1 6 15 28 45 66 89 116
+ouais
+mon père c'est bertrand renard
+
+
+david: :)
+
+
+clemos: mais bon c'est pas super logique quoi
+si remarque
+bon ensuite p:
+
+
+Envoyé – mercredi à 17:52
+clemos: le deuxieme terme après ça pourrait bien être ( le précédent * (strength * 2 ) / 3 )
+non pardon
+( le précédent * ( 1 + strength * 2 ) / 3 ) ?
+
+
+david: mmm
+
+
+clemos: 20 = 15 + ( 15 * 1 / 3 )
+non c'est pas tout ça fait ça
+56 = 28 + ( 28 * 3/3 )
+120 = 45 + ( 45 * 5/3 )
+tu vois le genre
+donc 1 => 3 => 5 => ??? 7 => 9 ?
+m = n + ( n * ( 1 + (strength - 3 ) * 2 ) / 3 )
+
+
+david: mais on l'a pas ça
+
+
+clemos: qqchose comme ça
+si
+de bas en haut, la première colonne, c'est 2 4 6 8 10 12 14 16 18 ...
+
+
+david: ouais !
+
+
+clemos: la deuxieme c'est 6 15 28 45 66 89 116 etc
+ensuite tu calcules la 3eme par rapport à la deuxieme
+m = colonne 3 / n = colonne 4
+fiou j'ai les synapses en feu
+
+
+david: ouah, t'es néo!
+
+
+clemos: lol
+un papier un crayon ya que ça de vrai
+
+
+david: merci, tu passeras le bjr à morphéus
+
+
+clemos: par contre à mon avis plus ça avance plus c'est n'importe quoi
+et après ton gpu il souffre
+
+
+david: de tte façon c n'importe koi les maths ya ka regarder comment s'habillent les gens dont c le métier
+ouip surtout kil fait ça pour chaque pixel de l'image :\
+
+
+clemos: la correspondance suivante est pareil mais / 4
+donc j'imagine qu'on tient à peu près le reste.
+
+
+david: merci je t'embetes pas plus
+
+
+clemos: tu l'as choppé le truc ?
+
+
+david: pas mis en pratique mais je pense que c bon
+
+
+clemos: trop le fun
+*/

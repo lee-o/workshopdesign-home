@@ -1,0 +1,27 @@
+
+.rsslib
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:lighter;
+	/*margin-top:-20px;
+	margin-left:-32px;*/
+	min-width:200px;
+	max-width:800px;
+	border:0 none;
+}
+
+.rsslib ul
+{
+  list-style-type: none;
+} 
+
+.rsslib ul li
+{
+  margin-bottom:8px;
+} 
+
+.rssdate, .rssdesc
+{
+	
+}

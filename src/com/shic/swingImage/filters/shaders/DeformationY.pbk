@@ -1,0 +1,90 @@
+<languageVersion : 1.0;>
+
+kernel SineWave
+<   namespace : "net.ghostradio.pb";
+    vendor : "ghostRadio.net";
+    version : 1;
+    description : "Applies a sine-wave to the image";
+>
+{   parameter float width
+    <
+    minValue : 0.0;
+    maxValue : 2000.0;
+    defaultValue : 576.0;
+    description : "width";
+    >;
+     parameter float height
+    <
+    minValue : 0.0;
+    maxValue : 2000.0;
+    defaultValue : 382.0;
+    description : "height";
+    >;
+    parameter float frequency
+    <
+    minValue : 0.0;
+    maxValue : 1.0;
+    defaultValue : 0.02;
+    description : "wave size";
+    >;
+    parameter float positionFactor
+    <
+    minValue : 0.0;
+    maxValue : 1000.0;
+    defaultValue : 0.0;
+    description : "positionFactor";
+    >;
+    
+    parameter float waveSize
+    <
+    minValue : -50.0;
+    maxValue : 50.0;
+    defaultValue : 20.0;
+    description : "waveSize";
+    >;
+    
+    parameter int direction
+    <
+    minValue : 0;
+    maxValue : 1;
+    defaultValue : 0;
+    description : "Direction of the wave - 0 for vertical, 1 for horizontal. (Default is 0 - vertical)";
+    >;
+
+    input image4 src;
+    output pixel4 outputPx;
+
+    void
+    evaluatePixel()
+    {
+        float2 cPos = outCoord();
+        
+        //float sineVal = cPos.y * sin(frequency);
+			
+        //cPos.x += sin(sineVal) * waveSize;
+        
+        float coord1 = (direction == 0) ? cPos.y : cPos.x;
+        
+        float sineVal = coord1 * sin(frequency)+positionFactor;
+        
+        if (direction == 0)
+        {
+           if(cPos.x<=width && cPos.y<=height)
+           {
+            if( cPos.x+sin(sineVal) * waveSize > width ){
+                cPos.x += sin(sineVal) * waveSize -width;
+            }else if( cPos.x+sin(sineVal) * waveSize < 0.0){
+                cPos.x += sin(sineVal) * waveSize +width;
+            }else{
+                cPos.x += sin(sineVal) * waveSize;
+            }
+          }
+        }
+        else
+        {
+            cPos.y += sin(sineVal) * waveSize;
+        }
+    
+        outputPx = sampleNearest(src, cPos);
+    }
+}

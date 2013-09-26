@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>Scriptol.com. Tutorials and tools for creating a Web 2.0 site.</title>
+    <link>http://www.scriptol.com</link>
+    <description>Resources for Webmasters and Web applications programming. Ajax and RSS articles and tools for RIA. The Scriptol PHP compiler.</description>
+    <pubDate>Sun, 17 Jan 2010 19:27:50 GMT</pubDate>
+    <item>
+      <title>Choose a Font for Your Website</title>
+      <link>http://www.scriptol.com/design/choose-font.php</link>
+      <description>Choosing the best font for your site? Here is the list of most popular fonts, with a script to test different sizes and colors.</description>
+      <pubDate>Fri, 12 Feb 2010 14:00:12 GMT</pubDate>
+    </item>
+    <item>
+      <title>Paint.NET, Future Photoshop?</title>
+      <link>http://www.scriptol.com/design/paint/</link>
+      <description>Image and photo editor running on .NET, hence its name, and on Windows, it is gradually enriched but is far to have the capabilities of The GIMP, but it has the advantage of ease of use. The intuitive interface helps to make images quickly.</description>
+      <pubDate>Sat, 16 Jan 2010 17:29:10 GMT</pubDate>
+    </item>
+    <item>
+      <title>Anatomy of Google: How the Search Engine Works </title>
+      <link>http://www.scriptol.com/web/google-anatomy.php</link>
+      <description> &#xA0; Architecture of the Google search engine. Design and layout made from a description provided by the founders of Google, Lawrence (Larry) Page and Sergey Brin.</description>
+      <pubDate>Mon, 11 Jan 2010 08:23:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Programming News - Year 2010</title>
+      <link>http://www.scriptol.com/programming/2010.php</link>
+      <description>WebOS offers to developers a third opportunity, next to Android and iPhone. According to the article by Agner Fog, the best compiler for critical applications requiring a perfect optimization is that of Intel.</description>
+      <pubDate>Mon, 11 Jan 2010 08:23:18 GMT</pubDate>
+    </item>
+    <item>
+      <title>Web Statistics : Key data of the Web</title>
+      <link>http://www.scriptol.com/web/statistics.php</link>
+      <description> &#xA0; How webmasters design their pages and what services are used on their sites. After analysis of 4 million websites, Casual obtained the following percentages of sites and services they are related ....</description>
+      <pubDate>Tue, 29 Dec 2009 09:29:43 UTC</pubDate>
+    </item>
+    <item>
+      <title>Browser size, another Google Tool</title>
+      <link>http://www.scriptol.com/tools/google-tools.php</link>
+      <description>Many free tools are available to webmasters by Google. Here is the complete list. Service of online statistics, it shows the number of visitors, their geographical origin or nature (engine, direct connection).</description>
+      <pubDate>Tue, 29 Dec 2009 09:28:45 UTC</pubDate>
+    </item>
+    <item>
+      <title>Editing Online with TinyMCE</title>
+      <link>http://www.scriptol.com/cms/tinymce.php</link>
+      <description>Using TinyMCE, you can create Web pages directly on your site by logging on any computer. Static pages using a template, a model in which is inserted the contents of the article you write.It is actually simple to choose a template in a list for each page, or change to an article already published, a possibility overlooked by most CMS. Hhowever, is would be useful for a contextual design</description>
+      <pubDate>Thu, 26 Nov 09 04:48:45 -0600</pubDate>
+    </item>
+    <item>
+      <title>SEO for Bing</title>
+      <link>http://www.scriptol.com/seo/bing-optimization.php</link>
+      <description>Bing was not a significant market share outside the U.S., but tips that apply to this engine are valid for most others too.Bing provides a list of advices on the site, which mirror the basics of SEO already expressed in various articles on this site, as the &lt;a href="list-of-seo-criteria-for-optimizing-and-improving-ranking.php" target="_parent"&gt;SEO bible&lt;/a&gt; by example</description>
+      <pubDate>Thu, 26 Nov 09 04:48:29 -0600</pubDate>
+    </item>
+    <item>
+      <title>Second Life and Virtual Life</title>
+      <link>http://www.scriptol.com/web/second-life.php</link>
+      <description> One does not talk often of Second Life now, but the virtual world is still there and continues to rise slowly although competition from other sites like Facebook, which do not offer the same interface, but can nevertheless allow to have a virtual life on the Net</description>
+      <pubDate>Thu, 26 Nov 09 04:48:19 -0600</pubDate>
+    </item>
+    <item>
+      <title>Google Chrome Frame</title>
+      <link>http://www.scriptol.com/chrome/frame.php</link>
+      <description> A plugin for Internet Explorer that add to the Microsoft browser, the JavaScript compiler of Chrome and the &lt;a href="http://www.scriptol.com/xml/html-5.php" target="_parent"&gt;HTML 5&lt;/a&gt; support! This plugin will work on Internet Explorer 6, 7 and further versions. Google wants to break a barrier that prevents the Web to evolve: the most common browser and its lack of compatibility with the new standards</description>
+      <pubDate>Thu, 26 Nov 09 04:48:15 -0600</pubDate>
+    </item>
+    <item>
+      <title>Google Chrome OS</title>
+      <link>http://www.scriptol.com/chrome/google-chrome-os.php</link>
+      <description>It will be started in seven seconds and will be free. Data will be saved on the Web. Chrome OS challenges Moblin from Intel, that is based on Linux too, and Windows CE or Seven. The new OS is designed from scratch, as was the browser, whose the interface as you can see is different and sleek</description>
+      <pubDate>Thu, 26 Nov 09 04:48:08 -0600</pubDate>
+    </item>
+    <item>
+      <title>Go from Google, alternative to C  </title>
+      <link>http://www.scriptol.com/programming/go.php</link>
+      <description> Google has created the Go language to operate with multi-core processors of today, that is difficult with current languages. To do this he employed several known authors, and that explains the legacy syntax of the language.CSP (communicating sequential processes) manages communication between program with support for multi-core processors</description>
+      <pubDate>Thu, 26 Nov 09 04:48:03 -0600</pubDate>
+    </item>
+    <item>
+      <title>Smart 404 Page</title>
+      <link>http://www.scriptol.com/wordpress/smart-404.php</link>
+      <description> Wordpress automatically manages the page that appears when the user gives the URL of a page that does not exist. In fact it is sufficient to put a 404.php file alongside the other files in the theme, for the contents of this file is displayed on URL errors</description>
+      <pubDate>Sat, 08 Aug 09 05:59:01 -0500</pubDate>
+    </item>
+    <item>
+      <title>Bing vs. Google</title>
+      <link>http://www.scriptol.com/seo/bing.php</link>
+      <description> Bing is a decision engine, a new concept of search engine by Microsoft, whose code name was previously Kumo. It is different from the search engine og Google and Microsoft hopes to retrieve a better place in online searching thank to it</description>
+      <pubDate>Wed, 29 Jul 09 08:53:39 -0500</pubDate>
+    </item>
+  </channel>
+</rss>

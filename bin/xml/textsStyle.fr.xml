@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<styles_texte_flash>
+		
+	<Helvetica-Neue-Lt-Std-Thin>
+		<size>18</size>
+		<font>HelveticaNeueLT Std Thin</font>
+		<embedFonts>true</embedFonts>
+		<bold>false</bold>
+		<italic>false</italic>
+		<color>0x000000</color>
+		<underline>false</underline>
+		<kerning>false</kerning>
+		<leading>0</leading>
+		<letterSpacing>0</letterSpacing>
+		<align>left</align>
+		<leftMargin>0</leftMargin>
+		<rightMargin>0</rightMargin>
+		<bullet>false</bullet>
+		<tabStops>2,2,2,2</tabStops>
+		<indent>0</indent>
+		<blockIndent>0</blockIndent>
+		<border>false</border>
+		<borderColor>0xff0000</borderColor>
+		<background>false</background>
+		<backgroundColor>0xff9999</backgroundColor>
+		<antiAliasType>advanced</antiAliasType>
+		<gridFitType>subpixel</gridFitType>
+		<sharpness>-200</sharpness>
+		<mouseWheelEnabled>false</mouseWheelEnabled>
+	</Helvetica-Neue-Lt-Std-Thin>
+		
+	<Helvetica-Neue-Lt-Std-Light>
+		<size>12</size>
+		<font>HelveticaNeueLT Std Lt</font>
+		<embedFonts>true</embedFonts>
+		<bold>false</bold>
+		<italic>false</italic>
+		<color>0x000000</color>
+		<underline>false</underline>
+		<kerning>false</kerning>
+		<leading>0</leading>
+		<letterSpacing>0</letterSpacing>
+		<align>left</align>
+		<leftMargin>0</leftMargin>
+		<rightMargin>0</rightMargin>
+		<bullet>false</bullet>
+		<tabStops>2,2,2,2</tabStops>
+		<indent>0</indent>
+		<blockIndent>0</blockIndent>
+		<border>false</border>
+		<borderColor>0xff0000</borderColor>
+		<background>false</background>
+		<backgroundColor>0xff9999</backgroundColor>
+		<antiAliasType>advanced</antiAliasType>
+		<gridFitType>subpixel</gridFitType>
+		<sharpness>-200</sharpness>
+		<mouseWheelEnabled>false</mouseWheelEnabled>
+	</Helvetica-Neue-Lt-Std-Light>
+	
+	<Helvetica-Neue-Lt-Std-Roman>
+		<size>120</size>
+		<font>HelveticaNeueLT Std</font>
+		<embedFonts>true</embedFonts>
+		<bold>false</bold>
+		<italic>false</italic>
+		<color>0x000000</color>
+		<underline>false</underline>
+		<kerning>false</kerning>
+		<leading>0</leading>
+		<letterSpacing>0</letterSpacing>
+		<align>left</align>
+		<leftMargin>0</leftMargin>
+		<rightMargin>0</rightMargin>
+		<bullet>false</bullet>
+		<tabStops>2,2,2,2</tabStops>
+		<indent>0</indent>
+		<blockIndent>0</blockIndent>
+		<border>false</border>
+		<borderColor>0xff0000</borderColor>
+		<background>false</background>
+		<backgroundColor>0xff9999</backgroundColor>
+		<antiAliasType>advanced</antiAliasType>
+		<gridFitType>subpixel</gridFitType>
+		<sharpness>-50</sharpness>
+		<mouseWheelEnabled>false</mouseWheelEnabled>
+	</Helvetica-Neue-Lt-Std-Roman>
+	
+	<Helvetica-Neue-Lt-Std-Bold>
+		<size>120</size>
+		<font>HelveticaNeueLT Std</font>
+		<embedFonts>true</embedFonts>
+		<bold>true</bold>
+		<italic>false</italic>
+		<color>0x000000</color>
+		<underline>false</underline>
+		<kerning>false</kerning>
+		<leading>0</leading>
+		<letterSpacing>0</letterSpacing>
+		<align>left</align>
+		<leftMargin>0</leftMargin>
+		<rightMargin>0</rightMargin>
+		<bullet>false</bullet>
+		<tabStops>2,2,2,2</tabStops>
+		<indent>0</indent>
+		<blockIndent>0</blockIndent>
+		<border>false</border>
+		<borderColor>0xff0000</borderColor>
+		<background>false</background>
+		<backgroundColor>0xff9999</backgroundColor>
+		<antiAliasType>advanced</antiAliasType>
+		<gridFitType>subpixel</gridFitType>
+		<sharpness>-50</sharpness>
+		<mouseWheelEnabled>false</mouseWheelEnabled>
+	</Helvetica-Neue-Lt-Std-Bold>
+
+</styles_texte_flash>
